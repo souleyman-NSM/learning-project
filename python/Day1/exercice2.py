@@ -1,2 +1,2 @@
-prénom = input("Quel est ton prénom ?")
-print("Bonjour,",prénom, "! Bienvenue en Python.")
+prenom = input ("Quel est ton prénom ?")
+print("Bonjour," , prenom,  "Bienvenue en Python")
