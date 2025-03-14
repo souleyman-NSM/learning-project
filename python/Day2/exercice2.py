@@ -10,7 +10,7 @@ produit = int(number1) * int(number2)
 quotient = int(number1) / int(number2)
 
 
-print("Somme :", somme,
-      "difference :", difference,
-      "produit :", produit,
-      "quotient :", quotient)
+print("Somme :", somme)
+print("Différence :", difference)
+print("Produit :", produit)
+print("Quotient :", quotient)
