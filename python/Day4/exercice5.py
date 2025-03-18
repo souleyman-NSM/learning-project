@@ -14,4 +14,4 @@ etudiants = [
 ]
 
 # Appeler la fonction
-rechercher_etudiant(etudiants, "Alice")
+rechercher_etudiant(etudiants, "Alice") , 
