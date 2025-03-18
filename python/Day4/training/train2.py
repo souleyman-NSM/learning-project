@@ -20,4 +20,5 @@ etudiant2 = {
 
 # Appels de la fonction avec chaque étudiant
 show(etudiant1)
+
 show(etudiant2)
