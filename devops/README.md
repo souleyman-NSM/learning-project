@@ -164,7 +164,7 @@ Garde un journal dans ton repo Git :
 - [ ] Exercice 2  
 ### Problèmes rencontrés :
 - Erreur X → Solution Y  
-
+dsq
 Exemple de commit :
 
 git add journal.md  
