@@ -51,6 +51,7 @@ x = eXécution. Testez avec ./backup.sh après.
 [ ] C. Affiche les processus Python
 [ ] D. Tue le serveur web
 
+nohup donne la persistance dans le code 
 ```
 
 Détail :

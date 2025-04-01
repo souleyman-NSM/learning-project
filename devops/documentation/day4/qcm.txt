@@ -1,0 +1,128 @@
+1. Docker build construit une image -t a partir de Dockerfile présent dans le dossier courant "."
+
+2. COPY   copie les fichiers du dossier courant local vers le dossier travail du conteneur (avec WORKDIR)
+  	  Le premier . = source (machine hôte), le deuxième . = destination (conteneur).
+
+3. docker run -d (le nom de image)
+	L'option -d (detach) permet de lancer un conteneur en arrière-plan.
+
+4.  // [✓] B. Définit /app comme dossier de travail dans le conteneur
+
+explication : change le repertoire courant dans le conteneur
+toutes les commandes suivantes (copy, run) s'executeront dans ce dossier
+
+5. // dpocker logs (mon conteneur)
+
+explication : 
+docker logs affiche les sorties (stdout/stderr) d'un conteneur.
+→ Essentiel pour debugger une application qui ne démarre pas.
+
+
+
+
+
+1. ✅ from l'environnement
+→ FROM spécifie l'image parente (ex: python:3.9, ubuntu:20.04).
+
+2. RUN apt-get install curl
+dans ubuntu, ou avec apk c'est très important.
+
+3. ✅ COPY . .  avec le workdir de /app
+explication :  COPY <src> <dest>
+
+4. 4. Comment définir une variable d'environnement dans un Dockerfile ?
+[ ] C. ENV ENV=production
+
+→ ENV KEY=value définit une variable persistante.
+
+
+5. RUN pip install flask
+elle envoie une command de pendant le build.
+
+6. CMD et le lancement d'une command avec l'image parente et 
+→ ENTRYPOINT définit la commande principale, CMD ses arguments par défaut.
+
+7. Comment réduire la taille d'une image ?
+[ ] A. Utiliser FROM scratch
+[ ] B. Supprimer les caches avec RUN apt-get clean
+[ ] C. Utiliser un multi-stage build
+[ ] D. Toutes ces réponses
+→ Toutes ces méthodes réduisent la taille.
+
+ 
+8. Que fait .dockerignore ? ✅ 
+[ ] B. Exclut des fichiers du contexte de build
+→ Évite de copier des fichiers inutiles (ex: node_modules, .git).
+
+9. Comment exposer le port 80 d'un conteneur ?
+[ ] A. EXPOSE 80 dans le Dockerfile
+[ ] B. docker run -p 80:80
+
+10. Quelle instruction ajoute des fichiers sans cache ?
+✅ Réponse : C
+→ COPY ne utilise pas de cache, contrairement à ADD (qui peut télécharger des URLs).
+
+
+
+
+1. docker images liste toutes les images // docker ps -a liste tous les conteneurs
+
+2. // docker rmi mon-image
+docker rmi (Remove Image) supprime une image.
+
+3. RUN : pendant le build
+   CMD : pour le lancement dans le conteneur () peut etre ecraser par RUN
+
+4. 
+
+
+5. Que fait docker exec -it mon-conteneur bash ?
+
+je veux que tu leur lances le qshell et interagit avec le conteneur
+💡 Explication :
+-it = mode interactif + terminal.
+bash = shell lancé dans le conteneur.
+
+6. docker stop web
+💡 Explication :
+stop envoie un signal SIGTERM (arrêt propre).
+kill force l’arrêt (SIGKILL).
+
+
+7. docker system prune
+
+💡 Explication :
+docker system prune supprime :
+
+Conteneurs arrêtés
+
+Réseaux inutilisés
+
+Images sans tag
+
+
+8. Comment redémarrer tous les conteneurs arrêtés ?
+ 
+[✓] B. docker start $(docker ps -aq)
+
+💡 Explication :
+docker ps -aq liste tous les IDs de conteneurs (y compris arrêtés).
+docker start les relance.
+
+
+9. difference entre ADD et COPY
+
+
+[ ] A. ADD peut copier depuis une URL
+[ ] B. ADD décompresse automatiquement les archives
+
+💡 Explication :
+ADD a des fonctionnalités supplémentaires, mais COPY est recommandé pour sa simplicité.
+
+
+10. Comment voir les processus en cours dans un conteneur ?
+[✓] B. docker top mon-conteneur
+
+💡 Explication :
+docker top affiche les processus (comme ps dans Linux).
+Option C fonctionne aussi, mais B est plus directe.

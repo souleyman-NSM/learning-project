@@ -76,6 +76,7 @@ Explication :
 C’est un serveur web minimaliste pour partager des fichiers dans le dossier courant.
 
 6. Comment copier un dossier projects vers backup en CLI ?
+
 mv projects backup
 
 cp -r projects backup
