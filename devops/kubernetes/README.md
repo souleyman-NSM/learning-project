@@ -1,3 +1,9 @@
+# le Control Plane est essentiel, car c’est le cerveau de Kubernetes.
+
+
+## ’est lui qui prend toutes les décisions, gère l’état global du cluster, et oriente ce qui se passe dans les nœuds (les machines qui font tourner tes apps).
+
+
                           [ Kubernetes Cluster ]
                                  |
                     +-----------------------------+
@@ -26,3 +32,5 @@
                     [ Expose via Ingress / LoadBalancer ]
                                  |
                          🌍 Internet / Clients
+
+
